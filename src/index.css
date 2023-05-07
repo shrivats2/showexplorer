@@ -5,9 +5,348 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #131325;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/*//////////////////////////////// C A R D /////////////////////////// */
+.container {
+  background-color: #131325;
+}
+
+.flex-row {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-flow: column;
+}
+
+.center {
+  align-items: center;
+}
+
+.list {
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.list .card {
+  cursor: pointer;
+  min-width: 700px;
+  margin-bottom: 10px;
+  perspective: 600px;
+  transition: all 0.1s;
+}
+
+.list .card .bottom {
+  height: 0px;
+  overflow: hidden;
+  width: 200px;
+  font-size: 12px;
+  color: #777;
+  font-weight: normal;
+}
+
+.list .card.open {
+  padding: 30px;
+  height: auto;
+}
+
+.list .card.open .bottom {
+  margin-top: 10px;
+  height: 100%;
+  overflow: visible;
+}
+
+.list .card.open .book {
+  transform: rotateY(50deg);
+  box-shadow: -10px 10px 10px 2px rgba(0, 0, 0, 0.2), -2px 0px 0px 0px #888;
+  transition: all 0.5s;
+}
+
+.list .card.open .info {
+  transform: translate(0, -10px);
+}
+
+.list .card.open .members {
+  padding: 15px 20px;
+  border-radius: 4px;
+  align-self: flex-start;
+}
+
+.list .card button.simple {
+  cursor: pointer;
+  color: #ccc;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  background-color: #1ea94b;
+  padding: 15px 20px;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.list .card button.simple:hover {
+  box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.3);
+  transform: translate(0, -5px);
+}
+
+.list .card {
+  background-color: #1d1d3b;
+  box-shadow: 0px 12px 10px rgb(50 106 83);
+  overflow: hidden;
+}
+
+.list .card .book {
+  transition: all 0.5s;
+  width: 120px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.list .card .info {
+  transition: all 0.2s;
+  min-width: 200px;
+  padding: 0px 30px;
+  font-family: 'Montserrat';
+  font-weight: bold;
+}
+
+.list .card .info .title {
+  font-size: 2em;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.list .card .info .author {
+  font-size: 1.2em;
+  font-weight: normal;
+  color: #888;
+}
+
+.list .card .group {
+  margin-left: auto;
+}
+
+.list .card .members {
+  transition: all 0.1s;
+  padding: 40px;
+  font-family: 'Montserrat';
+  color: #ccc;
+  background-color: #1d1d3b;
+}
+
+
+.list .card .members .max {
+  opacity: 0.5;
+  margin-left: 8px;
+}
+
+/*//////////////////////////////// C A R D /////////////////////////// */
+
+.show-list-container {
+  display: block;
+  height: 100vh;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: bold;
+  width: max-content;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 10px 20px;
+  background-color: #1ea94b;
+  border-radius: 50px;
+  box-shadow: 0px 7px 10px rgb(6 163 0 / 84%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.hero-title:hover {
+  transform: scale(1.05);
+}
+
+.hero-title-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+/*///////////////////////////S H O W S U M M A R Y//////////////////*/
+
+#card_container {
+  width: 700px;
+  height: 350px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -175px 0 0 -350px;
+  z-index: 0;
+}
+
+#card {
+  animation: backAn 50s infinite;
+  color: #fff;
+  padding: 30px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  box-shadow: 0px 45px 100px rgba(0, 0, 0, 0.4), inset 0 0 0 1000px rgba(0, 76, 86, 0.6);
+}
+
+#card .text-block {
+  position: absolute;
+  z-index: 2;
+}
+
+#card .text-block h1 {
+  font-family: 'Rubik', Sans-serif;
+  font-size: 3em;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+#card .text-block h1 small {
+  font-size: 0.4em;
+  color: #ccc;
+  position: relative;
+  bottom: 10px;
+}
+
+#card .text-block h3 {
+  margin: 0;
+  font-weight: 700;
+}
+
+#card .text-block p {
+  font-weight: 300;
+  width: 60%;
+}
+
+#card .text-block button {
+  transition: all 0.35s cubic-bezier(0.37, 0.26, 0.35, 1);
+  border: 4px solid #fff;
+  padding: 10px;
+  background: transparent;
+  font-family: 'Rubik', Sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#card .text-block button:hover {
+  background: #004c56;
+}
+
+#card_container .pg {
+  position: fixed;
+  width: 40%;
+  right: -10px;
+  z-index: 2;
+}
+
+#card_container .pg>img {
+  height: 450px;
+}
+
+button {
+  color: #fff;
+}
+
+@keyframes backAn {
+  0% {
+    background-size: 100%;
+  }
+
+  50% {
+    background-size: 250%;
+  }
+
+  100% {
+    background-size: 100%;
+  }
+}
+
+
+/*////////////////////// M O D A L ////////////////////*/
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal label {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.modal input[type="text"] {
+  width: -webkit-fill-available;
+  height: 21px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+input[type="email"] {
+  width: -webkit-fill-available;
+  height: 21px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+input[type="tel"] {
+  width: -webkit-fill-available;
+  height: 21px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+input#date {
+  width: -webkit-fill-available;
+  height: 21px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.modal button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal button[type="submit"]:hover {
+  background-color: #0056b3;
 }

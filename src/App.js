@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes, useNavigate } from "react-router-dom";
+import ShowSummary from "./components/ShowSummary";
+import ShowList from "./components/Showlist";
 
 function App() {
+  const navigate = useNavigate();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="hero-title-wrapper" style={{ cursor: "pointer" }}>
+        <h1 className="hero-title" onClick={() => navigate("/")}>
+          TV Shows
+        </h1>
+      </div>
+      <Routes>
+        <Route path="/" element={<ShowList />} />
+        <Route path="/summary/:showId" element={<ShowSummary />} />
+      </Routes>
     </div>
   );
 }
